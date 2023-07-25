@@ -36,9 +36,9 @@ public class Ordine {
 
 	@Override
 	public String toString() {
-		return "Ordine [acquisizione=" + acquisizione + ", consumazioni=["
-				+ consumazioni.stream().map(Consumation::getName).collect(Collectors.joining(",")) + "], tavolo="
-				+ tavolo + ", numero=" + numero + ", coperti=" + coperti + ", getTotale()=" + getTotale() + "]";
+		return "Ordine [\nacquisizione=" + acquisizione + ",\n consumazioni=[\n"
+				+ consumazioni.stream().map(Consumation::getName).collect(Collectors.joining(",\n")) + "\n],\n tavolo="
+				+ tavolo + ", numero=" + numero + ", coperti=" + coperti + ",\n getTotale()=" + getTotale() + "\n]";
 	}
 
 }
