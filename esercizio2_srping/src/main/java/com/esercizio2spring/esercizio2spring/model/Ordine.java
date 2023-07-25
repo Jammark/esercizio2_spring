@@ -4,9 +4,11 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import lombok.Getter;
 import lombok.ToString;
 
 @ToString
+@Getter
 public class Ordine {
 
 	private LocalDate acquisizione;
