@@ -1,7 +1,9 @@
 package com.esercizio2spring.esercizio2_srping;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 
 import com.esercizio2spring.esercizio2spring.model.Bevanda;
 import com.esercizio2spring.esercizio2spring.model.Consumation;
@@ -10,56 +12,87 @@ import com.esercizio2spring.esercizio2spring.model.IngredienteDecorator;
 import com.esercizio2spring.esercizio2spring.model.Pizza;
 
 @Configuration
+@PropertySource("classpath:application.properties")
 public class AppConfig {
+
+	@Value("${pomodoro}")
+	private double prezzoPomodoro;
+
+	@Value("${mozzarella}")
+	private double prezzoMozzarella;
+
+	@Value("${ananas}")
+	private double prezzoAnanas;
+
+	@Value("${prosciutto}")
+	private double prezzoProsciutto;
+
+	@Value("${funghi}")
+	private double prezzoFunghi;
+
+	@Value("${salame}")
+	private double prezzoSalame;
+
+	@Value("${mais}")
+	private double prezzoMais;
+
+	@Value("${acqua}")
+	private double prezzoAcqua;
+
+	@Value("${cola}")
+	private double prezzoCola;
+
+	@Value("${birra}")
+	private double prezzoBirra;
 
 	@Bean
 	public Ingrediente getPomodoro() {
-		return new Ingrediente("Pomodoro", 0.50, 100);
+		return new Ingrediente("Pomodoro", this.prezzoPomodoro, 100);
 	}
 
 	@Bean
 	public Ingrediente getMozzarella() {
-		return new Ingrediente("Mozzarella", 1.00, 140);
+		return new Ingrediente("Mozzarella", this.prezzoMozzarella, 140);
 	}
 
 	@Bean
 	public Ingrediente getAnanas() {
-		return new Ingrediente("Ananas", 2.00, 200);
+		return new Ingrediente("Ananas", this.prezzoAnanas, 200);
 	}
 
 	@Bean
 	public Ingrediente getProsciutto() {
-		return new Ingrediente("Prosciutto cotto", 1.00, 300);
+		return new Ingrediente("Prosciutto cotto", this.prezzoProsciutto, 300);
 	}
 
 	@Bean
 	public Ingrediente getFunghi() {
-		return new Ingrediente("funghi", 2.00, 400);
+		return new Ingrediente("funghi", this.prezzoFunghi, 400);
 	}
 
 	@Bean
 	public Ingrediente getMais() {
-		return new Ingrediente("mais", 2.50, 400);
+		return new Ingrediente("mais", this.prezzoMais, 400);
 	}
 
 	@Bean
 	public Ingrediente getSalame() {
-		return new Ingrediente("salame piccante", 3.00, 500);
+		return new Ingrediente("salame piccante", this.prezzoSalame, 500);
 	}
 
 	@Bean
 	public Bevanda getCola() {
-		return new Bevanda("Pepsi", 3.0);
+		return new Bevanda("Pepsi", this.prezzoCola);
 	}
 
 	@Bean
 	public Bevanda getAcqua() {
-		return new Bevanda("Acqua Minerale", 1.50);
+		return new Bevanda("Acqua Minerale", this.prezzoAcqua);
 	}
 
 	@Bean
 	public Bevanda getBirra() {
-		return new Bevanda("Heineken", 4.0);
+		return new Bevanda("Heineken", this.prezzoBirra);
 	}
 
 	@Bean

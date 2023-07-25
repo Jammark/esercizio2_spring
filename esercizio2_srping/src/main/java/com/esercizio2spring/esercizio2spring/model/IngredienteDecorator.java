@@ -5,6 +5,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import lombok.Getter;
+
+@Getter
 public class IngredienteDecorator extends PizzaDecorator {
 
 	private Ingrediente ingrediente;
@@ -35,7 +38,7 @@ public class IngredienteDecorator extends PizzaDecorator {
 
 	@Override
 	public String toString() {
-		return this.getName() + " ("
+		return super.getName() + " ("
 				+ Arrays.asList(this.ingredienti()).stream().map(i -> i.getName()).collect(Collectors.joining(","))
 				+ ")";
 	}
@@ -47,4 +50,9 @@ public class IngredienteDecorator extends PizzaDecorator {
 				.reduce((subtotal, element) -> subtotal + element).orElseThrow();
 	}
 
+	@Override
+	public String getName() {
+
+		return getCampo().getName();
+	}
 }

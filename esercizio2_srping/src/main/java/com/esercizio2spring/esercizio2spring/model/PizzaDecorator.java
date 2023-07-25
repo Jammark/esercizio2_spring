@@ -18,6 +18,8 @@ public abstract class PizzaDecorator extends Consumation {
 		return campo.getPrice();
 	}
 
+
+
 	protected abstract Ingrediente[] ingredienti();
 
 	public abstract int getCalorie();
